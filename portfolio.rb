@@ -29,10 +29,13 @@ end
 
 helpers do
   def social_media
-    [{  :name => 'twitter',
-        :url => 'https://www.twitter.com/beardedstudio' },
-      { :name => 'github',
-        :url => 'https://www.github.com/brett-bender'}
-      ]
+    twitter = { :name => 'Twitter',
+                :url => 'https://www.twitter.com/beardedstudio' }
+    github = { :name => 'Github',
+               :url => 'https://www.github.com/brett-bender' }
+    internet = {  :name => 'Website',
+                  :url => 'http://www.bearded.com'}
+
+    [internet, twitter, github]
   end
 end
