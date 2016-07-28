@@ -1,0 +1,35 @@
+<section class='contact-form'>
+  <h4 class='title'>
+    Feel free to contact me with any questions or comments.
+  </h4>
+
+  <form action='contact' method='post'>
+    <label for='name-input'>
+      Name:
+      <input name='name' type='text' id='name-input'>
+    </label>
+
+    <label for='email-input'>
+      Email:
+      <input name='email' type='text' id='email-input'>
+    </label>
+
+    <label for='subject-input'>
+      Subject:
+      <select id='subject-input' name='subject'>
+        <option>Select one</option>
+        <option value="programming">Work stuff</option>
+        <option value="conversation is a art">Personal social interaction</option>
+        <option value="vidja games">Fun stuff</option>
+      </select>
+    </label>
+
+    <label for='message-input'>
+      Name:
+      <textarea name='message' id='message-input'></textarea>
+    </label>
+
+    <input name='honeypot' type='text' style='display:none;'>
+    <input type='submit' value="Email me">
+  </form>
+</section>

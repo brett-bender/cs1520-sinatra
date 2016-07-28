@@ -1,12 +1,30 @@
 # portfolio.rb
 require 'sinatra'
+require 'pony'
 
 get '/' do
   erb :"index.html"
 end
 
-get '/:name' do
-  erb :"name.html", :locals => {:name => params['name']}
+post '/contact' do
+  locals = {}
+
+  locals[:name] = params['name']
+  locals[:email] = params['email']
+  locals[:message] = params['message']
+  locals[:subject] = params['subject']
+
+  unless params.key?('honeypot') && params['honeypot'].nil?
+    message_body = erb(:"_email-body.html", :locals => locals)
+
+    email = Pony.mail :to => 'test@example.com',
+                      :from => 'noreply@example.com',
+                      :subject => "contact email from your website!",
+                      :body => message_body
+    puts email
+  end
+
+  redirect '/'
 end
 
 helpers do
