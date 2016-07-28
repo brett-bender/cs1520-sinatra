@@ -1,6 +1,10 @@
 # portfolio.rb
 require 'sinatra'
+require 'sinatra/activerecord'
 require 'pony'
+require './message'
+
+set :database, {adapter: "sqlite3", database: "portfolio.sqlite3"}
 
 get '/' do
   erb :"index.html"
