@@ -14,7 +14,7 @@ post '/contact' do
   locals[:message] = params['message']
   locals[:subject] = params['subject']
 
-  unless params.key?('honeypot') && params['honeypot'].nil?
+  if !params.key?('honeypot') || params['honeypot'].empty?
     message_body = erb(:"_email-body.html", :locals => locals)
 
     email = Pony.mail :to => 'test@example.com',
