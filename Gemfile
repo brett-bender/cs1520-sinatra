@@ -6,3 +6,7 @@ gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'sqlite3'
 gem 'pony'
+
+group :development do
+  gem 'rspec'
+end
