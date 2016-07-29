@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Broken Form :(</title>
+  </head>
+  <body>
+    <h1 class='title'>
+      Oooh, something broke
+    </h1>
+
+    <main>
+      <section class='error-notification'>
+        <h2 class='title'>
+          My bad. There was an error sending your message.
+        </h2>
+
+        <% if errors.any? %>
+          <p>Here are the errors I found with your message:</p>
+          <ul class='error-list'>
+          <% errors.each do |attribute, message| %>
+            <li class='error'>
+              <%= attribute %> <%= message %>
+            </li>
+          <% end %>
+          </ul>
+
+          <p>If you can fix these errors, feel free to try again.</p>
+        <% end %>
+      </section>
+
+      <section class='social-media'>
+        <h3 class='title'>
+          Feel free to stalk me on the internet!
+        </h3>
+
+        <ul class='links'>
+          <% social_media.each do |item| %>
+            <li>
+              <a href="<%= item[:url] %>">
+                <%= item[:name] %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </section>
+
+      <h4>Want to try again?</h4>
+      <%= erb :"_contact-form.html" %>
+    </main>
+  </body>
+</html>
